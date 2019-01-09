@@ -27,4 +27,10 @@ class House
   end
 end
 
-puts House.new.recite
+class RandomHouse < House
+  def data
+    @data ||= super.shuffle
+  end 
+end
+
+puts RandomHouse.new.recite
