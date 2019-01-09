@@ -8,7 +8,11 @@ class House
   end
 
   def phrase(number)
-    data.last(number).join(" ")
+    parts(number).join(" ")
+  end
+
+  def parts(number)
+    data.last(number)
   end
 
   def data 
@@ -33,4 +37,10 @@ class RandomHouse < House
   end 
 end
 
-puts RandomHouse.new.recite
+class EchoHouse < House
+  def parts(number)
+    super.zip(super).flatten
+  end
+end
+
+puts EchoHouse.new.line(3)
